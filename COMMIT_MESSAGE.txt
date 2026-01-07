@@ -1,0 +1,74 @@
+feat: Adaptação completa do pipeline para Google Colab com detecção automática de ambiente
+
+Este commit implementa uma adaptação completa do pipeline de machine learning
+para execução no Google Colab, mantendo compatibilidade com ambiente local.
+
+## Principais mudanças
+
+### Notebooks adaptados
+- Adicionada detecção automática de ambiente (Colab vs Local) em todos os notebooks
+- Caminhos configurados dinamicamente baseado no ambiente
+- Batch sizes otimizados automaticamente (64/32/16/8 para Colab, 32/16/8/4 para local)
+- Novo notebook 00_Colab_Setup.ipynb para configuração inicial no Colab
+
+### Documentação completa
+- COLAB_SETUP.md: Guia detalhado de configuração para Colab
+- COLAB_QUICK_START.md: Início rápido em 5 minutos
+- ADAPTACAO_COLAB.md: Detalhes técnicos de adaptação
+- README_COLAB.md: Guia rápido de referência
+- ANALISE_VIABILIDADE_GPU.md: Análise completa de hardware (RTX 3050 6GB)
+- MLFLOW_GUIDE.md: Guia completo de uso do MLflow
+- CHECKLIST_FINAL.md: Checklist completo de execução
+- STATUS_FINAL.md: Status final do projeto
+- RESUMO_COMPLETO.md: Resumo abrangente de tudo criado
+
+### Scripts e utilitários
+- scripts/colab_setup.py: Script Python para setup automático
+- scripts/utils/gpu_monitor.py: Monitoramento de GPU
+- scripts/utils/path_config.py: Configuração centralizada de caminhos
+
+### Configuração
+- requirements.txt: Dependências do projeto
+
+### Funcionalidades implementadas
+- Detecção automática Colab/Local em todos os notebooks
+- Montagem automática do Google Drive no Colab
+- Batch sizes adaptativos por ambiente
+- MLflow integrado e configurado
+- Suporte completo aos 5 braços experimentais:
+  * Baseline CNN (ResNet50)
+  * ViT Puro (ImageNet)
+  * ViT + Contrastive (domain_specific_cl)
+  * ViT + MIM (MIM-Med3D)
+  * ViT + Sparse (Dictionary Learning)
+
+### Melhorias
+- Código mais modular e reutilizável
+- Melhor tratamento de erros
+- Mensagens informativas durante execução
+- Estrutura de diretórios padronizada
+
+## Arquivos modificados
+- scripts/01_Download_Datasets.ipynb
+- scripts/02_Feature_Extraction.ipynb
+- scripts/03_Classification.ipynb
+- scripts/04_Avaliacao_Estatistica.ipynb
+
+## Arquivos novos
+- scripts/00_Colab_Setup.ipynb
+- scripts/colab_setup.py
+- scripts/utils/gpu_monitor.py
+- scripts/utils/path_config.py
+- requirements.txt
+- 9 arquivos de documentação (.md)
+
+## Compatibilidade
+- ✅ Google Colab (T4, V100, A100)
+- ✅ Ambiente local (Linux, Windows, macOS)
+- ✅ Detecção automática sem necessidade de configuração manual
+
+## Próximos passos
+1. Upload dos notebooks para Google Drive
+2. Executar 00_Colab_Setup.ipynb no Colab
+3. Executar pipeline completo (01 → 02 → 03 → 04)
+
